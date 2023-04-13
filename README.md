@@ -13,7 +13,7 @@ P.S На моём [Boosty](https://boosty.to/kararasenok_gd) есть исход
 Я добавил возможность взаимодествия с чатом. Вот пример:
 
 ```python
-from krrsnk-api import Chat
+from krrsnkapi import Chat
 
 message = input("Сообщение для отправки: ")
 
@@ -32,7 +32,7 @@ else:
 Тут также есть декодер и энкодер Base64, вот пример декодера:
 
 ```python
-from krrsnk-api import Base64
+from krrsnkapi import Base64
 
 message = input("Текст для декодирования: ")
 
@@ -47,7 +47,7 @@ else:
 А вот энкодера:
 
 ```python
-from krrsnk-api import Base64
+from krrsnkapi import Base64
 
 message = input("Текст для декодирования: ")
 
