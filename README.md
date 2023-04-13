@@ -60,7 +60,7 @@ from krrsnkapi import Chat
 
 info = Chat("ваш API ключ").get_message_info_by_id("151", "id") # Тут как и в случае с get_last_message_info, вместо id что то из перечисленного ранее. И вместо 151 как и в случае с get_message_by_id заменить на любое другое айди
 
-if message == "KEY_NOT_FOUND":
+if info == "KEY_NOT_FOUND":
     print("Ключ не найден")
 else:
     print(info)
