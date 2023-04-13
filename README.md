@@ -53,6 +53,19 @@ else:
     print(message)
 ```
 
+Либо информацию
+
+```python
+from krrsnkapi import Chat
+
+info = Chat("ваш API ключ").get_message_info_by_id("151", "id") # Тут как и в случае с get_last_message_info, вместо id что то из перечисленного ранее. И вместо 151 как и в случае с get_message_by_id заменить на любое другое айди
+
+if message == "KEY_NOT_FOUND":
+    print("Ключ не найден")
+else:
+    print(info)
+```
+
 ### Пример 2: Base64
 
 Тут также есть декодер и энкодер Base64, вот пример декодера:
