@@ -1,5 +1,7 @@
 # krrsnk-api
 Простой способ использования моего API
+
+P.S На моём [Boosty](https://boosty.to/kararasenok_gd) есть исходники так и api, так и модуля
 ## Получение ключа
 1. [Авторизуемся](https://kararasenok.ueuo.com/accounts/login.php) (если надо [регестрируемся](https://kararasenok.ueuo.com/accounts/register.php))
 2. [Переходим](https://kararasenok.ueuo.com/api/create/) и создаём ключ
