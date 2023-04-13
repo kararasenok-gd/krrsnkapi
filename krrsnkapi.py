@@ -16,6 +16,44 @@ class Chat:
 
 		return self.status
 
+	def get_last_message_info(self, wReturn):
+		self.wReturn = wReturn
+
+		url = f'https://kararasenok.ueuo.com/api/v1/getlastmessageinfo/?apikey={self.apikey}&return={self.wReturn}'
+
+		self.response = requests.post(url)
+	
+
+		self.status = self.response.text
+
+		return self.status
+
+	def get_message_by_id(self, msgid, returnMessage = "0"):
+		self.msgid = msgid
+		self.returnMessage = returnMessage
+
+		url = f'https://kararasenok.ueuo.com/api/v1/getmessagebyid/?apikey={self.apikey}&id={self.msgid}&returnMessage={self.returnMessage}'
+
+		self.response = requests.post(url)
+	
+
+		self.status = self.response.text
+
+		return self.status
+
+	def get_message_info_by_id(self, msgid, wReturn):
+		self.msgid = msgid
+		self.wReturn = wReturn
+
+		url = f'https://kararasenok.ueuo.com/api/v1/getmessageinfobyid/?apikey={self.apikey}&id={self.msgid}&return={self.wReturn}'
+
+		self.response = requests.post(url)
+	
+
+		self.status = self.response.text
+
+		return self.status
+
 class Base64:
 		def __init__(self, apikey):
 			self.apikey = apikey
@@ -37,4 +75,3 @@ class Base64:
 			self.response = requests.post(url)
 
 			return self.response.text
-
