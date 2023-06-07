@@ -97,3 +97,11 @@ if status == "KEY_NOT_FOUND":
 else:
     print(status)
 ```
+### Пример 3: Песочница PHP
+Ну тут обьяснять не надо. Я думаю...
+```python
+from krrsnkapi import PHPsandbox
+code = "echo 'Hello, World!';"
+status = PHPsandbox("ключ").create_code(code) # Называеться create_code потому, что то, что указано в функции создаёт скрипт на сайте и возвращает ссылку на исполнение кода
+print(status)
+```
