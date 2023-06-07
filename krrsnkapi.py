@@ -75,3 +75,18 @@ class Base64:
 			self.response = requests.post(url)
 
 			return self.response.text
+
+class PHPsandbox:
+	def __init__(self, apikey):
+		self.apikey = apikey
+
+	def create_code(self, code):
+		self.code = code
+
+		self.code = self.code.replace("\n", " ")
+
+		url = f'https://kararasenok.ueuo.com/api/v1/runphpscript/?apikey={self.apikey}$code={self.code}'
+
+		self.response = requests.post(url)
+
+		return self.response.text
