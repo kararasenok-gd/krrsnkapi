@@ -105,3 +105,10 @@ code = "echo 'Hello, World!';"
 status = PHPsandbox("ключ").create_code(code) # Называеться create_code потому, что то, что указано в функции создаёт скрипт на сайте и возвращает ссылку на исполнение кода
 print(status)
 ```
+### Пример 4: R34
+Будет возвращать рандомную ссылку с rule34.xxx
+```python
+from krrsnkapi import r34
+url = r34("ключ").get_url("omori", 1) # Вместо omori можно что то другое (это тег(-и), или как в модуле - keyword), а вместо 1, любое другое число (это страница, или как в модуле - page)
+print(url)
+```
