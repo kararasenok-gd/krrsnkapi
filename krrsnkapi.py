@@ -97,7 +97,8 @@ class r34:
 
 	def get_url(self, keyword, page = 0):
 		self.keyword = keyword
+		self.page = page
 
-		self.response = requests.post(f"https://kararasenok.ueuo.com/api/v1/r34/?keyword={self.keyword}&apikey={self.apikey}")
+		self.response = requests.post(f"https://kararasenok.ueuo.com/api/v1/r34/?keyword={self.keyword}&apikey={self.apikey}&page={self.page}")
 
 		return self.response.text
