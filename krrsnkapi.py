@@ -85,8 +85,19 @@ class PHPsandbox:
 
 		self.code = self.code.replace("\n", " ")
 
-		url = f'https://kararasenok.ueuo.com/api/v1/runphpscript/?apikey={self.apikey}$code={self.code}'
+		url = f'https://kararasenok.ueuo.com/api/v1/runphpscript/?apikey={self.apikey}&code={self.code}'
 
 		self.response = requests.post(url)
+
+		return self.response.text
+
+class r34:
+	def __init__(self, apikey):
+		self.apikey = apikey
+
+	def get_url(self, keyword, page = 0):
+		self.keyword = keyword
+
+		self.response = requests.post(f"https://kararasenok.ueuo.com/api/v1/r34/?keyword={self.keyword}&apikey={self.apikey}")
 
 		return self.response.text
