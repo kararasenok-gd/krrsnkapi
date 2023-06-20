@@ -112,3 +112,10 @@ from krrsnkapi import r34
 url = r34("ключ").get_url("omori", 1) # Вместо omori можно что то другое (это тег(-и), или как в модуле - keyword), а вместо 1, любое другое число (это страница, или как в модуле - page)
 print(url)
 ```
+Или можно побыстрее (напрямую)
+```python
+from krrsnkapi import r34
+json = r34("ключ").get_url("omori", 1, True) # Вместо omori можно что то другое (это тег(-и), или как в модуле - keyword), а вместо 1, любое другое число (это страница, или как в модуле - page)
+url = r34("ключ").get_img_link(json)
+print(url)
+```
