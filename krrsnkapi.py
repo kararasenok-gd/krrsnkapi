@@ -1,4 +1,6 @@
 import requests
+import json
+import random
 
 class Chat:
 	def __init__(self, apikey):
@@ -95,10 +97,25 @@ class r34:
 	def __init__(self, apikey):
 		self.apikey = apikey
 
-	def get_url(self, keyword, page = 0):
+	def get_url(self, keyword, page = 0, use_r34_api = False):
 		self.keyword = keyword
 		self.page = page
+		self.use_r34_api = use_r34_api
 
-		self.response = requests.post(f"https://kararasenok.ueuo.com/api/v1/r34/?keyword={self.keyword}&apikey={self.apikey}&page={self.page}")
+		if self.use_r34_api is False:
+			self.response = requests.post(f"https://kararasenok.ueuo.com/api/v1/r34/?keyword={self.keyword}&apikey={self.apikey}&page={self.page}")
+		else:
+			self.response = requests.post(f"https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&tags={self.keyword}&pid={self.page}&json=1&limit=1000")
 
 		return self.response.text
+
+	def get_img_link(self, json_data):
+		self.json_data = json_data
+
+		self.data = json.loads(self.json_data)
+
+		self.random_object = random.choice(self.data)
+
+		self.random_fileurl = self.random_object['file_url']
+
+		return self.random_fileurl
