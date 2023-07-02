@@ -66,38 +66,7 @@ else:
     print(info)
 ```
 
-### Пример 2: Base64
-
-Тут также есть декодер и энкодер Base64, вот пример декодера:
-
-```python
-from krrsnkapi import Base64
-
-message = input("Текст для декодирования: ")
-
-status = Base64("ваш API ключ").decode(message)
-
-if status == "KEY_NOT_FOUND":
-    print("Ключ не найден")
-else:
-    print(status)
-```
-
-А вот энкодера:
-
-```python
-from krrsnkapi import Base64
-
-message = input("Текст для декодирования: ")
-
-status = Base64("ваш API ключ").decode(message)
-
-if status == "KEY_NOT_FOUND":
-    print("Ключ не найден")
-else:
-    print(status)
-```
-### Пример 3: Песочница PHP
+### Пример 2: Песочница PHP
 Ну тут обьяснять не надо. Я думаю...
 ```python
 from krrsnkapi import PHPsandbox
@@ -105,7 +74,7 @@ code = "echo 'Hello, World!';"
 status = PHPsandbox("ключ").create_code(code) # Называеться create_code потому, что то, что указано в функции создаёт скрипт на сайте и возвращает ссылку на исполнение кода
 print(status)
 ```
-### Пример 4: R34
+### Пример 3: R34
 Будет возвращать рандомную ссылку с rule34.xxx
 ```python
 from krrsnkapi import r34
