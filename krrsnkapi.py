@@ -2,6 +2,10 @@ import requests
 import json
 import random
 
+class apikeyError(Exception):
+	pass
+
+
 class Chat:
 	def __init__(self, apikey):
 		self.apikey = apikey
@@ -12,9 +16,12 @@ class Chat:
 		url = f'https://kararasenok.ueuo.com/api/v1/addchatmessage/?message={self.message}&apikey={self.apikey}'
 
 		self.response = requests.post(url)
-	
+		
 
 		self.status = self.response.text
+
+		if self.response.text == "KEY_NOT_FOUND":
+			raise apikeyError("The key you entered is incorrect!")
 
 		return self.status
 
@@ -24,9 +31,12 @@ class Chat:
 		url = f'https://kararasenok.ueuo.com/api/v1/getlastmessageinfo/?apikey={self.apikey}&return={self.wReturn}'
 
 		self.response = requests.post(url)
-	
+		
 
 		self.status = self.response.text
+
+		if self.response.text == "KEY_NOT_FOUND":
+			raise apikeyError("The key you entered is incorrect!")
 
 		return self.status
 
@@ -37,9 +47,12 @@ class Chat:
 		url = f'https://kararasenok.ueuo.com/api/v1/getmessagebyid/?apikey={self.apikey}&id={self.msgid}&returnMessage={self.returnMessage}'
 
 		self.response = requests.post(url)
-	
+		
 
 		self.status = self.response.text
+
+		if self.response.text == "KEY_NOT_FOUND":
+			raise apikeyError("The key you entered is incorrect!")
 
 		return self.status
 
@@ -50,37 +63,18 @@ class Chat:
 		url = f'https://kararasenok.ueuo.com/api/v1/getmessageinfobyid/?apikey={self.apikey}&id={self.msgid}&return={self.wReturn}'
 
 		self.response = requests.post(url)
-	
+		
 
 		self.status = self.response.text
 
+		if self.response.text == "KEY_NOT_FOUND":
+			raise apikeyError("The key you entered is incorrect!")
+
 		return self.status
-
-class Base64:
-		def __init__(self, apikey):
-			self.apikey = apikey
-
-		def decode(self, text):
-			self.text = text
-
-			url = f'https://kararasenok.ueuo.com/api/v1/base64/decode/?text={self.text}&apikey={self.apikey}'
-
-			self.response = requests.post(url)
-
-			return self.response.text
-
-		def encode(self, text):
-			self.text = text
-
-			url = f'https://kararasenok.ueuo.com/api/v1/base64/encode/?text={self.text}&apikey={self.apikey}'
-
-			self.response = requests.post(url)
-
-			return self.response.text
 
 class PHPsandbox:
 	def __init__(self, apikey):
-		self.apikey = apikey
+			self.apikey = apikey
 
 	def create_code(self, code):
 		self.code = code
@@ -90,6 +84,9 @@ class PHPsandbox:
 		url = f'https://kararasenok.ueuo.com/api/v1/runphpscript/?apikey={self.apikey}&code={self.code}'
 
 		self.response = requests.post(url)
+
+		if self.response.text == "KEY_NOT_FOUND":
+			raise apikeyError("The key you entered is incorrect!")
 
 		return self.response.text
 
@@ -107,6 +104,9 @@ class r34:
 		else:
 			self.response = requests.post(f"https://api.rule34.xxx/index.php?page=dapi&s=post&q=index&tags={self.keyword}&pid={self.page}&json=1&limit=1000")
 
+		if self.response.text == "KEY_NOT_FOUND":
+			raise apikeyError("The key you entered is incorrect!")
+
 		return self.response.text
 
 	def get_img_link(self, json_data):
@@ -119,3 +119,5 @@ class r34:
 		self.random_fileurl = self.random_object['file_url']
 
 		return self.random_fileurl
+
+
