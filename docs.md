@@ -230,6 +230,7 @@ POST /krrsnkchat/getByID.php
 - `400 Bad Request` - Некорректные параметры запроса или тела запроса.
 - `401 Unauthorized` - Некорректный или отсутствующий API ключ.
 - `404 Not Found` - Ресурс не найден.
+- `429 Too Many Requests` - Привишен лимит запросов
 - `500 Internal Server Error` - Ошибка на сервере.
 
 ## Примеры использования
