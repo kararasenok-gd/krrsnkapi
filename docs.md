@@ -6,6 +6,19 @@
 https://kararasenok.ueuo.com/api/v2
 ```
 
+## Ограничения
+Все эндпоинты имеют ограничения: не больше 5 запросов в минуту. Если привысить этот лимит. Будет ошибка
+
+- Код состояния: 429 Too Many Requests
+- Тело ответа:
+
+```json
+{
+    "error": "You have reached the rate limit. Please wait a few seconds and try again.",
+    "code": 429
+}
+```
+
 ## Раздел: krrsnkchat
 
 ## Эндпоинты
