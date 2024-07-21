@@ -5,5 +5,4 @@
 Простой способ использования моего API
 
 [Документация по API](https://github.com/kararasenok-gd/krrsnkapi/blob/main/docs.md)
-
-# ТУТ ПУСТО, ИЗВИНИТЕ :3
+ [Документация к модулю](https://github.com/kararasenok-gd/krrsnkapi/blob/main/module.md)
